@@ -7,7 +7,7 @@ auth:
 
 uplinks:
   npmjs:
-    url: https://registry.npmjs.org/
+    url: https://registry.npm.taobao.org/
 
 middlewares:
   audit:
@@ -15,14 +15,12 @@ middlewares:
 
 packages:
   '@*/*':
-    access: $all
-    publish: $all
-    proxy: npmjs
+    access: $authenticated
+    publish: $authenticated
 
   '**':
-    access: $all
-    publish: $all
-    proxy: npmjs
+    access: $authenticated
+    publish: $authenticated
 
 logs:
   - { type: stdout, format: pretty, level: trace }
